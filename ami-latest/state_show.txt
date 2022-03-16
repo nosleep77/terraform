@@ -1,0 +1,143 @@
+[0m# aws_instance.my_first_instance:
+resource "aws_instance" "my_first_instance" {
+    [1m[0mami[0m[0m                                  = "ami-0b0ea68c435eb488d"
+    [1m[0marn[0m[0m                                  = "arn:aws:ec2:us-east-1:944283371345:instance/i-0aec32ecdf573a7ea"
+    [1m[0massociate_public_ip_address[0m[0m          = true
+    [1m[0mavailability_zone[0m[0m                    = "us-east-1c"
+    [1m[0mcpu_core_count[0m[0m                       = 1
+    [1m[0mcpu_threads_per_core[0m[0m                 = 1
+    [1m[0mdisable_api_termination[0m[0m              = false
+    [1m[0mebs_optimized[0m[0m                        = false
+    [1m[0mget_password_data[0m[0m                    = false
+    [1m[0mhibernation[0m[0m                          = false
+    [1m[0mid[0m[0m                                   = "i-0aec32ecdf573a7ea"
+    [1m[0minstance_initiated_shutdown_behavior[0m[0m = "stop"
+    [1m[0minstance_state[0m[0m                       = "running"
+    [1m[0minstance_type[0m[0m                        = "t2.micro"
+    [1m[0mipv6_address_count[0m[0m                   = 0
+    [1m[0mipv6_addresses[0m[0m                       = []
+    [1m[0mmonitoring[0m[0m                           = false
+    [1m[0mprimary_network_interface_id[0m[0m         = "eni-094b20b014b208a4f"
+    [1m[0mprivate_dns[0m[0m                          = "ip-172-31-68-13.ec2.internal"
+    [1m[0mprivate_ip[0m[0m                           = "172.31.68.13"
+    [1m[0mpublic_dns[0m[0m                           = "ec2-3-85-142-48.compute-1.amazonaws.com"
+    [1m[0mpublic_ip[0m[0m                            = "3.85.142.48"
+    [1m[0msecondary_private_ips[0m[0m                = []
+    [1m[0msecurity_groups[0m[0m                      = [
+        "default",
+    ]
+    [1m[0msource_dest_check[0m[0m                    = true
+    [1m[0msubnet_id[0m[0m                            = "subnet-787a9b54"
+    [1m[0mtags_all[0m[0m                             = {}
+    [1m[0mtenancy[0m[0m                              = "default"
+    [1m[0mvpc_security_group_ids[0m[0m               = [
+        "sg-6c280d13",
+    ]
+
+    capacity_reservation_specification {
+        [1m[0mcapacity_reservation_preference[0m[0m = "open"
+    }
+
+    credit_specification {
+        [1m[0mcpu_credits[0m[0m = "standard"
+    }
+
+    enclave_options {
+        [1m[0menabled[0m[0m = false
+    }
+
+    metadata_options {
+        [1m[0mhttp_endpoint[0m[0m               = "enabled"
+        [1m[0mhttp_put_response_hop_limit[0m[0m = 1
+        [1m[0mhttp_tokens[0m[0m                 = "optional"
+        [1m[0minstance_metadata_tags[0m[0m      = "disabled"
+    }
+
+    root_block_device {
+        [1m[0mdelete_on_termination[0m[0m = true
+        [1m[0mdevice_name[0m[0m           = "/dev/sda1"
+        [1m[0mencrypted[0m[0m             = false
+        [1m[0miops[0m[0m                  = 100
+        [1m[0mtags[0m[0m                  = {}
+        [1m[0mthroughput[0m[0m            = 0
+        [1m[0mvolume_id[0m[0m             = "vol-090ca05b42810970a"
+        [1m[0mvolume_size[0m[0m           = 8
+        [1m[0mvolume_type[0m[0m           = "gp2"
+    }
+}
+
+# data.aws_ami.latest-ubuntu:
+data "aws_ami" "latest-ubuntu" {
+    [1m[0marchitecture[0m[0m          = "x86_64"
+    [1m[0marn[0m[0m                   = "arn:aws:ec2:us-east-1::image/ami-0b0ea68c435eb488d"
+    [1m[0mblock_device_mappings[0m[0m = [
+        {
+            device_name  = "/dev/sda1"
+            ebs          = {
+                "delete_on_termination" = "true"
+                "encrypted"             = "false"
+                "iops"                  = "0"
+                "snapshot_id"           = "snap-0d07aca74085233bf"
+                "throughput"            = "0"
+                "volume_size"           = "8"
+                "volume_type"           = "gp2"
+            }
+            no_device    = ""
+            virtual_name = ""
+        },
+        {
+            device_name  = "/dev/sdb"
+            ebs          = {}
+            no_device    = ""
+            virtual_name = "ephemeral0"
+        },
+        {
+            device_name  = "/dev/sdc"
+            ebs          = {}
+            no_device    = ""
+            virtual_name = "ephemeral1"
+        },
+    ]
+    [1m[0mcreation_date[0m[0m         = "2021-09-29T08:19:51.000Z"
+    [1m[0mdescription[0m[0m           = "Canonical, Ubuntu, 16.04 LTS, amd64 xenial image build on 2021-09-28"
+    [1m[0mena_support[0m[0m           = true
+    [1m[0mhypervisor[0m[0m            = "xen"
+    [1m[0mid[0m[0m                    = "ami-0b0ea68c435eb488d"
+    [1m[0mimage_id[0m[0m              = "ami-0b0ea68c435eb488d"
+    [1m[0mimage_location[0m[0m        = "099720109477/ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-20210928"
+    [1m[0mimage_type[0m[0m            = "machine"
+    [1m[0mmost_recent[0m[0m           = true
+    [1m[0mname[0m[0m                  = "ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-20210928"
+    [1m[0mowner_id[0m[0m              = "099720109477"
+    [1m[0mowners[0m[0m                = [
+        "099720109477",
+    ]
+    [1m[0mplatform_details[0m[0m      = "Linux/UNIX"
+    [1m[0mproduct_codes[0m[0m         = []
+    [1m[0mpublic[0m[0m                = true
+    [1m[0mroot_device_name[0m[0m      = "/dev/sda1"
+    [1m[0mroot_device_type[0m[0m      = "ebs"
+    [1m[0mroot_snapshot_id[0m[0m      = "snap-0d07aca74085233bf"
+    [1m[0msriov_net_support[0m[0m     = "simple"
+    [1m[0mstate[0m[0m                 = "available"
+    [1m[0mstate_reason[0m[0m          = {
+        "code"    = "UNSET"
+        "message" = "UNSET"
+    }
+    [1m[0mtags[0m[0m                  = {}
+    [1m[0musage_operation[0m[0m       = "RunInstances"
+    [1m[0mvirtualization_type[0m[0m   = "hvm"
+
+    filter {
+        [1m[0mname[0m[0m   = "name"
+        [1m[0mvalues[0m[0m = [
+            "ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-*",
+        ]
+    }
+    filter {
+        [1m[0mname[0m[0m   = "virtualization-type"
+        [1m[0mvalues[0m[0m = [
+            "hvm",
+        ]
+    }
+}[0m[0m
