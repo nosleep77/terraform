@@ -3,3 +3,9 @@ variable "instance_name" {
   type        = string
   default     = "VarExampleAppServerInstance"
 }
+
+
+variable "ami_id" {
+  description = "ami id"
+  type        = string
+}
