@@ -3,11 +3,11 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 3.27"
+#      version = "~> 3.27"
     }
   }
 
-  required_version = ">= 1.1.0"
+#  required_version = ">= 1.1.0"
 }
 
 provider "aws" {
@@ -24,3 +24,14 @@ resource "aws_instance" "app_server" {
     Name = var.instance_name
   }
 }
+
+## s3 bucket
+resource "aws_s3_bucket" "b" {
+  bucket = "my-tf-test-bucket"
+
+  tags = {
+    Name        = "My bucket"
+    Environment = "Dev"
+  }
+}
+
