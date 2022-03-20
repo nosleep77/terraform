@@ -4,7 +4,7 @@ resource "aws_vpc" "my_vpc" {
   enable_dns_hostnames = true
 
   tags = {
-    Name = "My VPC"
+    Name = "My Test VPC"
   }
 }
 
@@ -17,6 +17,17 @@ resource "aws_subnet" "public" {
     Name = "Public Subnet"
   }
 }
+
+resource "aws_subnet" "private" {
+  vpc_id     = aws_vpc.my_vpc.id
+  cidr_block = "10.10.0.0/24"
+  availability_zone = "us-east-1a"
+
+  tags = {
+    Name = "Private Subnet"
+  }
+}
+
 
 resource "aws_internet_gateway" "my_vpc_igw" {
   vpc_id = aws_vpc.my_vpc.id
